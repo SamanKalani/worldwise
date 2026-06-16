@@ -16,6 +16,9 @@ import SpinnerFullPage from './components/SpinnerFullPage'
 // import AppLayout from './pages/AppLayout'
 // import Login from './pages/Login'
 // import Signup from './pages/Signup'
+
+// Load pages only when needed to reduce initial bundle size
+// Show a loading spinner while lazy-loaded components are being fetched
 const HomePage = lazy(() => import('./pages/HomePage'))
 const Pricing = lazy(() => import('./pages/Pricing'))
 const Product = lazy(() => import('./pages/Product'))

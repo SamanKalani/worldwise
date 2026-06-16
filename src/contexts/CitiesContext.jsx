@@ -36,15 +36,11 @@ function CitiesProvider({ children }) {
     try {
       dispatch({ type: 'isLoading' })
 
-      // 👈 قدم اول: کل شهرهای موجود در دیتابیس را درخواست می‌دهیم
       const res = await fetch(`${BASE_URL}/cities`)
 
       if (!res.ok) throw new Error('There was an error loading data...')
 
       const allCities = await res.json()
-
-      // 👈 قدم دوم: در فرانت‌اند، شهرهایی که آیدی کاربرشان با کاربر فعلی یکی است را فیلتر می‌کنیم
-      // با این کار اگر کاربر جدید باشد، خروجی یک آرایه خالی [] خواهد بود و سرور هیچ ۴۰۴ای نمی‌دهد!
       const userCities = allCities.filter((city) => Number(city.userId) === Number(userId))
 
       dispatch({ type: 'cities/loaded', payload: userCities })

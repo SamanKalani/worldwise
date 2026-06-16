@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import styles from './Signup.module.css'
-import { useAuth } from '../contexts/FakeAuthContext' // یا هر اسمی که کانتکستت دارد
+import { useAuth } from '../contexts/FakeAuthContext'
 import { Link, useNavigate } from 'react-router-dom'
 import Button from '../components/Button'
 
@@ -32,12 +32,24 @@ export default function Signup() {
 
         <div className={styles.row}>
           <label htmlFor="name">Full name</label>
-          <input type="text" id="name" onChange={(e) => setName(e.target.value)} value={name} required />
+          <input
+            type="text"
+            id="name"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            required
+          />
         </div>
 
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
-          <input type="email" id="email" onChange={(e) => setEmail(e.target.value)} value={email} required />
+          <input
+            type="email"
+            id="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            required
+          />
         </div>
 
         <div className={styles.row}>
@@ -53,7 +65,7 @@ export default function Signup() {
 
         <div className={styles.row}>
           <Button type="primary" disabled={isLoading}>
-            {isLoading ? "Creating..." : "Sign Up"}
+            {isLoading ? 'Creating...' : 'Sign Up'}
           </Button>
           <Link to="/login" className={styles.link}>
             Already have an account? Login

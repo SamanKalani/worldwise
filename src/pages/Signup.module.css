@@ -1,0 +1,64 @@
+.signup {
+  margin: 2.5rem;
+  padding: 2.5rem 5rem;
+  background-color: var(--color-dark--1);
+  min-height: calc(100vh - 5rem);
+}
+
+.form {
+  background-color: var(--color-dark--2);
+  border-radius: 7px;
+  padding: 2rem 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  /* Different from other form */
+  width: 48rem;
+  margin: 8rem auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.errorBox {
+  width: 100%;
+  padding: 1.2rem 1.6rem;
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #ff8080;
+  background-color: rgba(255, 128, 128, 0.1);
+  border: 1px solid rgba(255, 128, 128, 0.25);
+  border-radius: 7px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.link {
+  font-size: 1.4rem;
+  color: var(--color-brand--2);
+  text-decoration: none;
+  margin-left: auto;
+  transition: all 0.2s;
+}
+
+.link:hover {
+  color: var(--color-brand--1);
+  text-decoration: underline;
+}
+
+/* یک انیمیشن نرم برای ظاهر شدن ارور */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

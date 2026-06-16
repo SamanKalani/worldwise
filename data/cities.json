@@ -1,0 +1,41 @@
+{
+  "cities": [
+    {
+      "cityName": "Aiseau",
+      "country": "Belgium",
+      "emoji": "🇧🇪",
+      "date": "2026-06-15T23:19:22.764Z",
+      "notes": "",
+      "position": {
+        "lat": "50.4120745806588",
+        "lng": "4.5937246795543984"
+      },
+      "id": "uGB-hKWWMfk"
+    },
+    {
+      "cityName": "Loeches",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2026-06-15T23:35:37.519Z",
+      "notes": "It was beautiful",
+      "position": {
+        "lat": "40.39674868415174",
+        "lng": "-3.4041008301056634"
+      },
+      "id": "8GU9pq2DqiU"
+    },
+    {
+      "cityName": "Mashhad",
+      "country": "Iran",
+      "emoji": "🇮🇷",
+      "date": "2026-06-15T23:54:55.223Z",
+      "notes": "It was a great city with a lot of great memories..",
+      "position": {
+        "lat": "36.30359825246193",
+        "lng": "59.59736581847151"
+      },
+      "id": "TWtTiBi5ugk"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

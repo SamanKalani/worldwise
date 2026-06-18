@@ -37,6 +37,7 @@ function Form() {
   const [emoji, setEmoji] = useState('')
   const [geocodingError, setGeocodingError] = useState('')
 
+  //reverse geocoding: get city name and country from coordinates
   useEffect(
     function () {
       if (!lat && !lng) return

@@ -42,6 +42,7 @@ function App() {
                   </ProtectedRoute>
                 }
               >
+                {/* Redirect to cities and prevent back-button loops */}
                 <Route index element={<Navigate replace to="cities" />} />
                 <Route path="cities" element={<CityList />} />
                 <Route path="cities/:id" element={<City />} />

@@ -44,11 +44,14 @@ function Map() {
         </Button>
       )}
 
+      {/* main frame of the map */}
       <MapContainer center={mapPosition} zoom={6} scrollWheelZoom={true} className={styles.map}>
+        {/* loaded images */}
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
+        {/* using Marker on our cities */}
         {cities.map((city) => (
           <Marker position={[city.position.lat, city.position.lng]} key={city.id}>
             <Popup>
@@ -64,16 +67,26 @@ function Map() {
   )
 }
 
+// Component to programmatically update the map's center view.
+// Note: Leaflet's MapContainer only sets the center during the initial mount.
+// To make the map dynamic and responsive to state changes (like clicking a city),
+// this component intercepts state updates and forces Leaflet to pan/fly to the new position.
+
 function ChangeCenter({ position }) {
-  const map = useMap()
-  map.setView(position)
-  return null
+  const map = useMap() // Accesses Leaflet's internal map instance
+  map.setView(position) // Programmatically updates the view to the new coordinates
+  return null // This component doesn't render anything itself; it only interacts with the map instance
 }
 
+// Component to detect and handle click events anywhere on the map grid.
+// Instead of tracking standard browser pixel clicks, it utilizes Leaflet's event system
+// to capture geographic coordinates (latitude & longitude) and syncs them with the application
+// state by redirecting the user to the city creation form via URL query parameters.
 function DetectClick() {
   const navigate = useNavigate()
 
   useMapEvents({
+    // Captures the geographic coordinates (e.latlng) and pushes them into the URL query string
     click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
   })
 }
